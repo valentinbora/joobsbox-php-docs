@@ -1,0 +1,17 @@
+h1. Joobsbox PHP Documentation
+
+Welcome to the Joobsbox PHP documentation. Here you will find various guides that will teach you how to use Joobsbox but also how to extend it to suit your needs better.
+
+h2. Installing Joobsbox
+
+h2. Using Joobsbox
+* "A job post is born":a-job-post-is-born
+
+h2. Managing Joobsbox
+
+h2. Extending Joobsbox
+
+* "How to write a Joobsbox plugin":how-to-write-a-joobsbox-plugin
+* "How to make a Joobsbox theme":how-to-make-a-joobsbox-theme
+ 
+h2. Contributing to the project

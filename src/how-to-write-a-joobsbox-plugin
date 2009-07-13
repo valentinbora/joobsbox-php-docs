@@ -1,0 +1,14 @@
+h1. How to write a Joobsbox plugin
+
+You want to extend Joobsbox with some fancy functionality but you don't intend to dive into the core of the application? No problemo! That's why Joobsbox gives you plugins to extend its functionality. Below you can find out how to create such a plugin.
+
+h2. The plugin architecture
+
+While doing its job, Joobsbox raises some flags from time to time. These flags are called events. When this happens, it also looks for plugins that care about these flags and invites them to stage to perform their action. Here's an example:
+# Joobsbox homepage requests the available jobs from the database boss
+# When it receives these jobs, it raises a flag: "received_jobs"
+# It then calls each plugin that has eyes for this event. This is done by simply defining a method called "event_received_jobs". 
+# Each plugin has its moment of glory
+# Joobsbox continues normal operation and shows the jobs
+
+h2. Hello
