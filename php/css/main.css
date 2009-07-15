@@ -40,4 +40,19 @@ h2 {
   margin: 12px auto;
 }
 
-ol, 
+a {
+  font-weight: normal;
+}
+
+a:link {
+  color: #000;
+}
+
+a:visited {
+  color: #555;
+}
+
+code {
+  padding: 3px;
+  background-color: #F8F8CC;
+}

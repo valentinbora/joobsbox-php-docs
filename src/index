@@ -2,7 +2,10 @@ h1. Joobsbox PHP Documentation
 
 Welcome to the Joobsbox PHP documentation. Here you will find various guides that will teach you how to use Joobsbox but also how to extend it to suit your needs better.
 
-h2. Installing Joobsbox
+h2. Installing Joobsbox PHP
+
+* "Getting Joobsbox PHP":getting-joobsbox-php
+* "Deploying Joobsbox PHP to your server":deploying-joobsbox
 
 h2. Using Joobsbox
 

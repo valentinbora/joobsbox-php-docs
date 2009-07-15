@@ -1,0 +1,32 @@
+h1. Deploying Joobsbox PHP to your server
+
+h2. Deploying the files (method 1 - FTP approach)
+
+To deploy Joobsbox PHP to your Linux based server, download the package to your machine and unpack it. 
+
+Create a new domain/subdomain for your fresh Joobsbox installation and log in to FTP in order to upload Joobsbox PHP files.
+
+Upload the Joobsbox PHP files inside the directory you unpacked.
+
+h2. Deploying the files (method 2 - SSH approach)
+
+If you know you have access to your server through SSH, you can follow these steps to get the files installed:
+
+* Connect to your server through SSH
+* Go to the directory where you want to store Joobsbox PHP files
+* Type the following:
+** @wget http://joobsbox.com/download/php-latest@
+** @tar zxvf joobsbox-php.tar.gz@
+* GO GO GO
+
+h2. Linking to the database
+
+Joobsbox PHP needs a database to store jobs and other important data. Follow the instructions with your hosting provider in order to create a new database or share an already existing database with Joobsbox PHP. Keep your database connection credentials at ready, Joobsbox would like to know them.
+
+h2. Installation process
+
+Joobsbox has an installation setup which runs the first time your access its location from browser. Please access the location at which you installed Joobsbox (example.com/joobsbox). 
+
+Joobsbox will redirect you to the installation process, which asks for some information and then your site is ready to run.
+
+h2. Congratulations on running Joobsbox!
