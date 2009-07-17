@@ -2,6 +2,10 @@ h1. Joobsbox PHP Documentation
 
 Welcome to the Joobsbox PHP documentation. Here you will find various guides that will teach you how to use Joobsbox but also how to extend it to suit your needs better.
 
+h2. What's under the hood
+
+* "Technologies Joobsbox is based upon":technologies
+
 h2. Installing Joobsbox PHP
 
 * "Getting Joobsbox PHP":getting-joobsbox-php
@@ -13,9 +17,17 @@ h2. Using Joobsbox
 
 h2. Managing Joobsbox
 
+* "The admin panel":the-admin-panel
+* "Admin panel bundled plugins":admin-default-plugins
+
 h2. Extending Joobsbox
 
 * "How to write a Joobsbox plugin":how-to-write-a-joobsbox-plugin
 * "How to make a Joobsbox theme":how-to-make-a-joobsbox-theme
  
 h2. Contributing to the project
+
+* "Translate Joobsbox into your language":translate-joobsbox
+* "Write a plugin and share it":write-a-plugin
+* "Make a theme and share it":make-a-theme
+* "Report bugs":reporting-bugs

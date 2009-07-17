@@ -1,0 +1,19 @@
+h1. Technologies Joobsbox is based upon
+
+h2. Base technology
+
+Joobsbox PHP is, of course, based on PHP - a popular dynamic website construction language. Joobsbox also makes use of:
+
+* MySQL database server
+* JavaScript
+* CSS 2 and 3
+
+h2. Why reinvent the wheel? 
+
+Joobsbox makes use of some very popular open-source projects, renowned worldwide. You must have heard about
+
+* "Zend Framework":http://framework.zend.com
+* "jQuery":http://jquery.com
+* "jQuery UI":http://jqueryui.com
+
+All of these technologies are mature and free. They have been created by skilled people, established names in their industries.

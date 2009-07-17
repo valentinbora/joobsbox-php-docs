@@ -2,7 +2,7 @@ h1. Deploying Joobsbox PHP to your server
 
 h2. Deploying the files (method 1 - FTP approach)
 
-To deploy Joobsbox PHP to your Linux based server, download the package to your machine and unpack it. 
+To deploy Joobsbox PHP to your UNIX based server, download the package to your machine and unpack it. 
 
 Create a new domain/subdomain for your fresh Joobsbox installation and log in to FTP in order to upload Joobsbox PHP files.
 
@@ -15,7 +15,7 @@ If you know you have access to your server through SSH, you can follow these ste
 * Connect to your server through SSH
 * Go to the directory where you want to store Joobsbox PHP files
 * Type the following:
-** @wget http://joobsbox.com/download/php-latest@
+** @wget http://joobsbox.com/download/latest-php@
 ** @tar zxvf joobsbox-php.tar.gz@
 * GO GO GO
 
