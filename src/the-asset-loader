@@ -1,0 +1,20 @@
+h1. Joobsbox Asset Loader
+
+h2. Introduction
+
+The Asset Loader is available in all view scripts that get used by Joobsbox. These can be either of the loaded theme or of plugins'. It will load both the js and css of what you request.
+
+h2. Loading an asset
+
+The Asset Loader provides a single function named @load@. Example usage: @$this->asset->load('something')@. 
+
+h2. What can it load
+
+The Asset Loader can load the following things:
+
+* jquery
+* jquery-ui (or jqueryui)
+
+h2. Why would you prefer to use The Asset Loader
+
+This one provides a convenient method to load certain libraries such as jquery. It helps because you don't need to figure out the urls at which these libraries' files are located and whether Joobsbox core updates their versions.

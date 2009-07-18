@@ -21,6 +21,8 @@
 
 	<p>Joobsbox features two flavours of plugin related functionality. Above you&#8217;ve seen how an event works. Joobsbox doesn&#8217;t expect an <strong>event handler</strong> to return anything. However, there is a special type of handlers called filters. A filter is given some pieces of information and is then expected to return it. It&#8217;s each plugin&#8217;s job to take care about that data.</p>
 
+	<p><span class="important">All plugins that implement a certain filter will <strong>chain</strong>. This means that the first plugin&#8217;s returned data will be fed to the next plugin that implements that functionality.</span></p>
+
 	<h2>Creating a new plugin</h2>
 
 	<p>To create a plugin, make a new folder in <span class="dir">plugins/</span> starting with a capital letter and named uniquely as your plugin name.</p>
@@ -42,4 +44,81 @@ That&#8217;s it! You have a plugin. Now you have to teach it to watch the flags.
 Again for the sake of example, we&#8217;ll consider a filter and an event. </p>
 
 	<p>The event: <strong>received_jobs</strong><br />
-This flag gets raised when the homepage receives the jobs from the Jobs model. To create an event handler, you need to define a function called quite imaginatively <strong>event_received_jobs</strong></p>
+This flag gets raised when the homepage receives the jobs from the Jobs model. To create an event handler, you need to define a function called quite imaginatively <strong>event_received_jobs</strong>. From now on, every time the homepage is loaded, your plugin&#8217;s _received_jobs_ event handler will get executed.</p>
+
+	<p>The filter: <strong>job_description</strong><br />
+This filter is requested every time a job description needs to be displayed. A common place for this to happen is the job detail page. This filter for example sends the job description string as a parameter to your function. Your plugin filter function will then make modifications to the string and return it. </p>
+
+	<p><span class="important">Pay special attention to the way the function filter returns the data it received. It needs to be returned inside an array.</span></p>
+
+	<p>Whether your function receives 1 or 10 arguments, they need to be returned in an array, ordered exactly the same as they were received. This is because, as mentioned above, filter functions from different plugins chain.</p>
+
+	<h2>What magic happens by extending _Joobsbox_Plugin_Base_</h2>
+
+	<h3>Plugin data storage </h3>
+
+	<p>Simple means of storing data in the database, as key-value pairs. You can store text data that only your plugin can read and write. This can be done by using the following functions:</p>
+
+	<ul>
+		<li><code>addConfiguration($key, $value)</code></li>
+		<li><code>getConfiguration($key)</code> // retrieves the value that coresponds to $key</li>
+	</ul>
+	<ul>
+		<li><code>deleteConfigurationByName($key)</code> // deletes the entry that corresponds to $key</li>
+	</ul>
+
+	<h3>Get easy access to Joobsbox models</h3>
+
+	<ul>
+		<li><code>getModel($name)</code></li>
+	</ul>
+
+	<h3>Get easy access to Joobsbox helpers</h3>
+
+	<ul>
+		<li><code>$this-&#62;_helper-&#62;MakeLink(&#39;something that has to get formatted as a link&#39;)</code> for example</li>
+	</ul>
+
+	<h2>Admin plugins</h2>
+
+	<p>Simple plugins and admin plugins share the same <span class="dir">plugins/</span> folder and the same magic mentioned above. However, admin plugins are something a little more advanced. They get an entry into the admin panel&#8217;s menu, and, if they want, they can also show up in the dashboard on the admin panel home page.</p>
+
+	<h3>The configuration file</h3>
+
+	<p>Each admin plugin has to set up a <span class="file">config.ini.php</span> of its own. If <em>Hello</em> plugin were an admin plugin, it would have to provide Joobsbox with the file <span class="file">plugins/Hello/config.ini.php</span>. This file needs to have the following format:</p>
+
+	<p><code>[main]</code><br />
+<code>title_en			=	Hello title</code><br />
+<code>image				=	images/hello_24.png</code></p>
+
+	<p>What this does is that it sets the plugin title both in the admin panel menu and dashboard. The directive title_$lang is there to set up the title for different languages. You could for example set up title_fr for the French title.</p>
+
+	<h3>Appearing on the Dashboard</h3>
+
+	<p>In order for a plugin to appear on the dashboard, it has to implement the function <strong>dashboard()</strong> and also have a dashboard view script, located in <span class="file">Hello/views/dashboard.phtml</span>.</p>
+
+	<h3>Magic inherits</h3>
+
+	<p>Each admin plugin features a few variables and methods that save lives. The view scripts have the following methods and variables:</p>
+
+	<ul>
+		<li><code>$this-&#62;pluginUrl</code> gives you the url at which the plugin is being loaded. You can use this to build links</li>
+		<li><code>$this-&#62;translate</code> Joobsox plugins are given the godsend of gettext translations. They must have the <span class="dir">languages/</span> folder which has to contain the gettext files for the current locale setting.</li>
+		<li><code>$this-&#62;themeUrl</code> is the current theme&#8217;s url &#8211; useful for building links to css, js or image files in the current theme.</li>
+		<li><code>$this-&#62;baseUrl</code> is Joobsbox base url &#8211; if it was installed under <em>yourdomain.com/apps/joobsbox</em> for example, the <strong>baseUrl</strong> would be &#8220;apps/joobsbox&#8221;</li>
+		<li><code>$this-&#62;publicUrl</code> is the public folder&#8217;s url &#8211; useful for loading js, css and other stuff located in <span class="dir">public/</span></li>
+		<li><code>$this-&#62;asset</code> is a special asset loader for view scripts &#8211; check out <a href="the-asset-loader">The Asset Loader</a> to see what can it do for you</li>
+		<li><code>$this-&#62;conf</code> links you to a Zend_Config_Ini object that has loaded <span class="file">config/config.ini.php</span> in a directly accessible object. Example usage: <code>$this-&#62;conf-&#62;main-&#62;common_title</code></li>
+		<li><code>$this-&#62;headScript()</code> Zend_View method for loading javascript files</li>
+		<li><code>$this-&#62;headMeta()</code> Zend_View method for adding meta tags to head</li>
+		<li><code>$this-&#62;headLink()</code> Zend_View method for adding <link> tags &#8211; load <span class="caps">CSS</span> files through this</li>
+	</ul>
+	<ul>
+		<li><code>$this-&#62;headTitle()</code> Zend_View method for working with the page title</li>
+	</ul>
+
+	<p>Methods and variables accessible in the plugin class:</p>
+
+	<ul>
+		<li><code>$this-&#62;_helper</code> provides access to Joobsbox helpers</li>
+	</ul>

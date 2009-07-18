@@ -108,3 +108,15 @@ span.smile {
   padding: 12px;
   padding-top: 20px;
 }
+
+span.important {
+  display: block;
+  padding: 12px;
+  padding-left: 60px;
+  background-image: url('../../images/light.png');
+  background-repeat: no-repeat;
+  background-position: 5px center;
+  background-color: #FF3C00;
+  font-size: 90%;
+  color: #FFF;
+}
