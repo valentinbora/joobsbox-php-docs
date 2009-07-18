@@ -1,6 +1,8 @@
 /****** Joobsbox Style *********/
 body {
   font-family: "Myriad Pro", "Calibri", "Helvetica", "Verdana", "Arial", sans-serif;
+  background-image: url('../../images/title_background.jpg');
+  background-repeat: repeat-x;
 }
 
 #top-nav {
@@ -13,8 +15,8 @@ body {
 
 #contents {
   width: 60%;
-  margin-left: 40px;
   line-height: 1.75em;
+  margin: 0 auto;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -27,7 +29,10 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   background-image: none;
-  padding: 0;
+  height: 133px;
+  line-height: 180px;
+  text-align:center;
+  position: relative;
 }
 
 h1 {
@@ -38,6 +43,13 @@ h1 {
 h2 {
   font-size: 120%;
   margin: 12px auto;
+}
+
+h3 {
+  font-size: 100%;
+  margin: 20px auto;
+  position: relative;
+  left: 20px;
 }
 
 a {
@@ -55,4 +67,44 @@ a:visited {
 code {
   padding: 3px;
   background-color: #F8F8CC;
+}
+
+p.source {
+  background-image: url('../../images/source_background.jpg');
+  background-repeat: repeat-x;
+  background-position: top left;
+  background-color: #83cf50;
+  padding: 8px;
+  padding-top: 25px;
+  font-family: monospace;
+  line-height: 1.2em;
+}
+
+span.dir {
+  background-image: url('../../images/folder.png');
+  background-repeat: no-repeat;
+  background-position: 2px center;
+  padding: 3px;
+  padding-left: 24px;
+  font-size: 90%;
+  background-color: #E6EEFF;
+}
+
+span.file {
+  background-image: url('../../images/file.png');
+  background-repeat: no-repeat;
+  background-position: 2px center;
+  padding: 3px;
+  padding-left: 24px;
+  font-size: 90%;
+  background-color: #E6EEFF;
+}
+
+span.smile {
+  background-image: url('../../images/smile.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  font-size: 90%;
+  padding: 12px;
+  padding-top: 20px;
 }

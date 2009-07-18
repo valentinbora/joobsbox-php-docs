@@ -2,11 +2,21 @@
 
 	<h2>Deploying the files (method 1 &#8211; <span class="caps">FTP</span> approach)</h2>
 
-	<p>To deploy Joobsbox <span class="caps">PHP</span> to your Linux based server, download the package to your machine and unpack it. </p>
+	<p>To deploy Joobsbox <span class="caps">PHP</span> to your <span class="caps">UNIX</span> based server, download the package to your machine and unpack it. </p>
 
 	<p>Create a new domain/subdomain for your fresh Joobsbox installation and log in to <span class="caps">FTP</span> in order to upload Joobsbox <span class="caps">PHP</span> files.</p>
 
 	<p>Upload the Joobsbox <span class="caps">PHP</span> files inside the directory you unpacked.</p>
+
+	<p>Some files and folders need to be written by Joobsbox at certain points. Because of this, they need to have write permissions. You can set permissions per files and folders using your favourite <span class="caps">FTP</span> client software (example: Filezilla). Give write permissions to the following files and folders:
+	<ul>
+		<li>config/</li>
+		<li>config/config.ini.php</li>
+		<li>cache/</li>
+	</ul>
+	<ul>
+		<li>Joobsbox/SearchIndexes</li>
+	</ul></p>
 
 	<h2>Deploying the files (method 2 &#8211; <span class="caps">SSH</span> approach)</h2>
 
@@ -17,14 +27,16 @@
 		<li>Go to the directory where you want to store Joobsbox <span class="caps">PHP</span> files
 		<li>Type the following:
 	<ul>
-		<li><code>wget http://joobsbox.com/download/latest-php</code></li>
+		<li><code>wget http://joobsbox.com/download/latest-php-targz</code></li>
+		<li><code>tar zxvf joobsbox-php.tar.gz</code></li>
+		<li><code>chmod +x install.bash</code></li>
 	</ul></li>
 	<ul>
-		<li><code>tar zxvf joobsbox-php.tar.gz</code></li>
+		<li><code>./install.bash</code></li>
 	</ul></li>
 	</ul>
 	<ul>
-		<li>GO GO GO</li>
+		<li>You&#8217;re set</li>
 	</ul>
 
 	<h2>Linking to the database</h2>
@@ -35,6 +47,6 @@
 
 	<p>Joobsbox has an installation setup which runs the first time your access its location from browser. Please access the location at which you installed Joobsbox (example.com/joobsbox). </p>
 
-	<p>Joobsbox will redirect you to the installation process, which asks for some information and then your site is ready to run.</p>
+	<p>Joobsbox will redirect you to the installation process, which asks for some information and then your site is ready to run. Please refer to the <a href="installation-process">Installation process</a> section of the manual for more information.</p>
 
 	<h2>Congratulations on running Joobsbox!</h2>

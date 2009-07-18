@@ -1,0 +1,39 @@
+h1. Installation process
+
+Joobsbox comes bundled with an intuitive, 3 steps installer.
+
+h2. Step 1
+
+This is the most complex step. Here you need to provide the common title for all your Joobsbox site pages. For example, if you had your common title "Nobody without a job", then all pages in your site would feature this as their last chunk (the publish page's title would look like "Publish - Nobody without a job").
+
+h3. Joobsbox needs a database
+
+This is a tricky part that could bring trouble to the unexperienced. You have to set up a database for Joobsbox to store its data in it. This is usually done using your host's control/admin panel under the databases section. 
+
+h3. What happens if your host only allows you one database
+
+Joobsbox thought about that, and you will thoughtfully tell it to use a table prefix so you can distinguish them from other applications' tables. This way they won't overwrite each other.
+
+h3. Database information required by Joobsbox to connect
+
+Joobsbox connects to the database server in the background. Yet stil, it needs proper credentials so that the server will satisfy its requests. The following information is required:
+
+* database name
+* connection username
+* connection password
+* database server address
+
+The connection username and password must be a correct combination for a user that can connect to the database you specified in the database name field. 
+The database server address is "localhost" most of the times. However, there are some hosts that require you to specify otherwise. Please refer to your hosts' documentation for more information.
+
+h3. The table prefix
+
+This can be set to something like "jbs_" if you need it. 
+
+h2. Step 2
+
+If you passed step 1, step 2 is a welcoming screen that creates an administration user for you.
+
+h2. Step 3
+
+There's no step 3 really. This only tells you that you're done! Congrats!

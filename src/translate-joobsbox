@@ -1,0 +1,26 @@
+h1. Translating Joobsbox PHP
+
+This is one of the easiest things and a cool feature of Joobsbox PHP. Joobsbox PHP uses gettext files for translations. This technology is an industry standard and is used among many very popular open-source software. 
+
+h2. How does it work
+
+A translation source consists of two files: the source (.po) and the compiled file (.mo). A source file looks like the following:
+
+p(source). #: Controllers/CategoryController.php:38
+msgid "This category does not exist."
+msgstr "This category does not exist."
+
+p(source). #: Controllers/JobController.php:33
+msgid "The requested job does not exist!"
+msgstr "The requested job does not exist!"
+
+The .mo file is compiled using software like poEdit.
+
+h2. How you can help
+
+Joobsbox PHP translations can be done online using the popular web application Rosetta from Canonical's Launchpad. 
+Go to "Joobsbox Translations in Launchpad":https://translations.launchpad.net/joobsbox and start translating into your own language. 
+
+h2. The cool part
+
+In Launchpad, you can translate everything right there, using using your browser. If you don't know how to translate a string, just leave it out or suggest a translation and it will be reviewed by someone else.

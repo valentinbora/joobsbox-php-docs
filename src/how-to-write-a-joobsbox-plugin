@@ -5,10 +5,33 @@ You want to extend Joobsbox with some fancy functionality but you don't intend t
 h2. The plugin architecture
 
 While doing its job, Joobsbox raises some flags from time to time. These flags are called events. When this happens, it also looks for plugins that care about these flags and invites them to stage to perform their action. Here's an example:
-# Joobsbox homepage requests the available jobs from the database boss
-# When it receives these jobs, it raises a flag: "received_jobs"
-# It then calls each plugin that has eyes for this event. This is done by simply defining a method called "event_received_jobs". 
-# Each plugin has its moment of glory
-# Joobsbox continues normal operation and shows the jobs
+* Joobsbox homepage requests the available jobs from the database boss
+* When it receives these jobs, it raises a flag: "received_jobs"
+* It then calls each plugin that has eyes for this event. This is done by simply defining a method called "event_received_jobs". 
+* Each plugin has its moment of glory
+* Joobsbox continues normal operation and shows the jobs
 
-h2. 
+Each plugin defines *event handlers* or *filters* that get executed when a flag is raised.
+
+h2. Events vs filters
+
+Joobsbox features two flavours of plugin related functionality. Above you've seen how an event works. Joobsbox doesn't expect an *event handler* to return anything. However, there is a special type of handlers called filters. A filter is given some pieces of information and is then expected to return it. It's each plugin's job to take care about that data.
+
+h2. Creating a new plugin
+
+To create a plugin, make a new folder in %(dir)plugins/% starting with a capital letter and named uniquely as your plugin name.
+
+h3. Let's create the plugin
+
+For the sake of simplicity, we'll use an example plugin named _Hello_ plugin, the simplest Joobsbox plugin in the world. 
+
+* Create the folder %(dir)plugins/Hello%
+* Create a php file called %(file)Hello.php% in this folder.
+* Open %(file)Hello.php% in your favourite source code editor
+
+This file needs to contain your plugin class called Hello, just as the plugin name, plugin folder and plugin file %(smile)&nbsp;%. This class needs to extend the core class Joobsbox_Plugin_Base. You'll find out what magic happens by extending this class.
+That's it! You have a plugin. Now you have to teach it to watch the flags. In order to decide the precise moment your plugin is going to stage to perform, consult the "list of events and filters":list-of-events-and-filters.
+Again for the sake of example, we'll consider a filter and an event. 
+
+The event: *received_jobs*
+This flag gets raised when the homepage receives the jobs from the Jobs model. To create an event handler, you need to define a function called quite imaginatively *event_received_jobs*

@@ -13,9 +13,6 @@
 </head>
 
 <body>
-  <div id="top-nav">
-
-  </div>
   <div id="contents">
   <?php
     $url = str_replace($baseUrl, '', $_SERVER['REQUEST_URI']);

@@ -8,6 +8,12 @@ Create a new domain/subdomain for your fresh Joobsbox installation and log in to
 
 Upload the Joobsbox PHP files inside the directory you unpacked.
 
+Some files and folders need to be written by Joobsbox at certain points. Because of this, they need to have write permissions. You can set permissions per files and folders using your favourite FTP client software (example: Filezilla). Give write permissions to the following files and folders:
+* config/
+* config/config.ini.php
+* cache/
+* Joobsbox/SearchIndexes
+
 h2. Deploying the files (method 2 - SSH approach)
 
 If you know you have access to your server through SSH, you can follow these steps to get the files installed:
@@ -15,9 +21,11 @@ If you know you have access to your server through SSH, you can follow these ste
 * Connect to your server through SSH
 * Go to the directory where you want to store Joobsbox PHP files
 * Type the following:
-** @wget http://joobsbox.com/download/latest-php@
+** @wget http://joobsbox.com/download/latest-php-targz@
 ** @tar zxvf joobsbox-php.tar.gz@
-* GO GO GO
+** @chmod +x install.bash@
+** @./install.bash@
+* You're set
 
 h2. Linking to the database
 
@@ -27,6 +35,6 @@ h2. Installation process
 
 Joobsbox has an installation setup which runs the first time your access its location from browser. Please access the location at which you installed Joobsbox (example.com/joobsbox). 
 
-Joobsbox will redirect you to the installation process, which asks for some information and then your site is ready to run.
+Joobsbox will redirect you to the installation process, which asks for some information and then your site is ready to run. Please refer to the "Installation process":installation-process section of the manual for more information.
 
 h2. Congratulations on running Joobsbox!
