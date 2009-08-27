@@ -46,9 +46,6 @@ In case you don't want to, or can't use the MySQL databse JoobsBox can work happ
 
 h5. Setting up
 
-All you need to do in order to set up the database is to introduce the database name.
-
-%(important)If you have issues setting up the SQLite database please verify the file permissions on your hosting service.
 
 
 h2. Step 2
